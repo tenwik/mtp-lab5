@@ -12,7 +12,9 @@ def create_window() -> tk.Tk:
     label = ttk.Label(root, name='greeting', text='Нажмите кнопку.')
     label.pack(pady=25)
     ttk.Button(
-        root, name='hello', text='Привет',
+        root,
+        name='hello',
+        text='Привет',
         command=lambda: label.configure(text='Привет, Георгий!'),
     ).pack()
     return root

@@ -22,8 +22,9 @@ def create_window() -> tk.Tk:
     ttk.Label(root, text='Можно открыть несколько окон одновременно.').pack(
         pady=30,
     )
-    ttk.Button(root, text='Новое окно',
-               command=lambda: open_child(root)).pack()
+    ttk.Button(
+        root, text='Новое окно', command=lambda: open_child(root)
+    ).pack()
     return root
 
 

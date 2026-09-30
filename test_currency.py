@@ -1,7 +1,7 @@
 """Проверки расчётов и недопустимых сумм конвертера."""
 
-from decimal import Decimal
 import unittest
+from decimal import Decimal
 
 from currency_converter import convert
 

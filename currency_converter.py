@@ -1,7 +1,7 @@
 """Повышенное №6: конвертер с фиксированными учебными курсами."""
 
-from decimal import Decimal, InvalidOperation, localcontext
 import tkinter as tk
+from decimal import Decimal, InvalidOperation, localcontext
 from tkinter import ttk
 
 RATES = {'RUB': Decimal('1'), 'USD': Decimal('90'), 'EUR': Decimal('100')}
@@ -39,14 +39,17 @@ def create_window() -> tk.Tk:
     ttk.Entry(frame, textvariable=amount).pack(fill='x')
     for caption, variable in (('Из валюты', source), ('В валюту', target)):
         ttk.Label(frame, text=caption).pack(anchor='w')
-        ttk.Combobox(frame, textvariable=variable, values=list(RATES),
-                     state='readonly').pack(fill='x')
+        ttk.Combobox(
+            frame, textvariable=variable, values=list(RATES), state='readonly'
+        ).pack(fill='x')
 
     def calculate() -> None:
         """Отобразить результат или понятную ошибку."""
         try:
-            result.set(f'{convert(amount.get(), source.get(), target.get())}'
-                       f' {target.get()}')
+            result.set(
+                f'{convert(amount.get(), source.get(), target.get())}'
+                f' {target.get()}'
+            )
         except ValueError as error:
             result.set(str(error))
 
